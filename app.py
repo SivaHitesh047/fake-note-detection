@@ -18,6 +18,8 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
  
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
  
+loaded_model = pickle.load(open('finalized_model.sav', 'rb'))
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
      
@@ -40,6 +42,17 @@ def upload_image():
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         img=image.load_img(os.path.join(app.config['UPLOAD_FOLDER'], filename),target_size=(300,300)) #The path of the testing image,the pic taken from the phone should come her   
+        img=np.asarray(img)
+        #plt.imshow(img)
+        img=np.expand_dims(img,axis=0) / 255.0
+        output=loaded_model.predict(img) 
+        print(output)
+        if(output[0][0]>output[0][1]): #comparison
+            print("inside fake")
+            flash("Note is fake")
+        else:
+            print("inside real")
+            flash("Note is real")
         return render_template('index.html', filename=filename)
     else:
         flash('Allowed image types are - png, jpg, jpeg, gif')

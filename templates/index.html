@@ -80,9 +80,17 @@
 				<form method="post" action="/" enctype="multipart/form-data">
 					{% with messages = get_flashed_messages() %}
 						{% if messages %}
-									<div role="alert">
+							{% for message in messages %}
+								{% if "fake" in message %}
+									<div class="alert-red" role="alert">
 										{{ message }}
-									</div>	
+									</div>
+								{% else %}
+								<div class="alert-green" role="alert">
+									{{ message }}
+								</div>
+								{% endif %} 
+							{% endfor %}
 						{% endif %}
 					{% endwith %}
 					<div class="form-group">
