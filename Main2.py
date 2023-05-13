@@ -12,7 +12,7 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.callbacks import EarlyStopping, LearningRateScheduler
 from tensorflow.keras.preprocessing.image import load_img
 import numpy as np
-import pickle
+from joblib import dump, load
 import matplotlib.pyplot as plt
 
 
@@ -140,6 +140,6 @@ print(result)
 
 # In[ ]:
 
-
+dump(finetune_model, 'finalized_model.joblib', compress=True)
 
 

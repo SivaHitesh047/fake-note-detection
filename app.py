@@ -1,7 +1,7 @@
 from flask import Flask, flash, request, redirect, url_for, render_template
 import urllib.request
 import os
-import pickle
+import joblib
 from keras.preprocessing.image import ImageDataGenerator,image
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,7 +18,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
  
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
  
-loaded_model = pickle.load(open('finalized_model.sav', 'rb'))
+loaded_model = joblib.load('finalized_model.joblib')
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
