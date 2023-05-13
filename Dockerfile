@@ -1,4 +1,3 @@
-
 FROM python:3.8.8
 COPY . /myapp
 WORKDIR /myapp
