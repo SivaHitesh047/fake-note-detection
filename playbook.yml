@@ -1,0 +1,14 @@
+---
+- name: Pull docker image
+  hosts: all
+  tasks:
+          - name: Pull the image from dockerhub
+            docker_image:
+                  name: sandy7799/flask-image 
+                  source: pull
+
+          - name: Write command after pulling image
+            shell: 'echo "Done pulling the image"'
+
+          - name: running container
+            shell: docker run -id sandy7799/flask-image
