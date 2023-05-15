@@ -62,6 +62,7 @@ def upload_image():
 def display_image(filename):
     print("hello 2")
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
+    
  
 if __name__ == '__main__':
     app.run(host="0.0.0.0",debug=True)
