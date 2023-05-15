@@ -4,9 +4,9 @@ import warnings
 from tensorflow.keras.preprocessing.image import load_img
 from Main2 import testing_func
 
-logging.basicConfig(filename='result_logs.log', format="%(asctime)s %(message)s")
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
+# logging.basicConfig(filename='result_logs.log', format="%(asctime)s %(message)s")
+# logger = logging.getLogger()
+# logger.setLevel(logging.INFO)
 
 
 class TestModel(unittest.TestCase):
@@ -15,11 +15,11 @@ class TestModel(unittest.TestCase):
         result = testing_func(test_img)
         if result == "Fake":
             print("The note is Fake")
-            logger.info("The note is Fake")
+            # logger.info("The note is Fake")
             self.assertEqual(result, "Fake")
         else:
             print("The note is Real")
-            logger.info("The note is Real")
+            # logger.info("The note is Real")
             self.assertEqual(result, "Real")
     
     def test2(self):
@@ -27,11 +27,11 @@ class TestModel(unittest.TestCase):
         result = testing_func(test_img)
         if result == "Fake":
             print("The note is Fake")
-            logger.info("The note is Fake")
+            # logger.info("The note is Fake")
             self.assertEqual(result, "Fake")
         else:
             print("The note is Real")
-            logger.info("The note is Real")
+            # logger.info("The note is Real")
             self.assertEqual(result, "Real")
 
     def test3(self):
@@ -39,11 +39,11 @@ class TestModel(unittest.TestCase):
         result = testing_func(test_img)
         if result == "Fake":
             print("The note is Fake")
-            logger.info("The note is Fake")
+            # logger.info("The note is Fake")
             self.assertEqual(result, "Fake")
         else:
             print("The note is Real")
-            logger.info("The note is Real")
+            # logger.info("The note is Real")
             self.assertEqual(result, "Real")
 
     def test4(self):
@@ -51,11 +51,11 @@ class TestModel(unittest.TestCase):
         result = testing_func(test_img)
         if result == "Fake":
             print("The note is Fake")
-            logger.info("The note is Fake")
+            # logger.info("The note is Fake")
             self.assertEqual(result, "Fake")
         else:
             print("The note is Real")
-            logger.info("The note is Real")
+            # logger.info("The note is Real")
             self.assertEqual(result, "Real")
     
     def test5(self):
@@ -63,11 +63,11 @@ class TestModel(unittest.TestCase):
         result = testing_func(test_img)
         if result == "Fake":
             print("The note is Fake")
-            logger.info("The note is Fake")
+            # logger.info("The note is Fake")
             self.assertEqual(result, "Fake")
         else:
             print("The note is Real")
-            logger.info("The note is Real")
+            # logger.info("The note is Real")
             self.assertEqual(result, "Real")
 
 if __name__ == '__main__':

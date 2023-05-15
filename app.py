@@ -26,11 +26,13 @@ def allowed_file(filename):
  
 @app.route('/')
 def home():
+    logger.info('Page Visited')
     return render_template('index.html')
  
 @app.route('/', methods=['POST'])
 def upload_image():
     print("hello 1")
+    logger.info('New image uploaded for detection')
     if 'file' not in request.files:
         flash('No file part')
         return redirect(request.url)
@@ -61,6 +63,7 @@ def upload_image():
 @app.route('/display/<string:filename>')
 def display_image(filename):
     print("hello 2")
+    logger.info('Requested detection for an existing image')
     return redirect(url_for('static', filename='uploads/' + filename), code=301)
  
 if __name__ == '__main__':
